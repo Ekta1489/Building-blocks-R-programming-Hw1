@@ -10,7 +10,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
  
 #Question 1
-#Here's the first **code chunk** that creates a data frame called first_df comprised of a random sample named norm_samp of size 8 from a _standard normal distribution_, a logical vector named vec_log indicating whether elements of the sample are greater than 0, a character vector named vec_char of length 8 and a factor vector named vec_factor of length 8, with 3 different factor levels- Here the three levels are 1,2 and 3. After creating the data frame, I tried taking the mean of each variable in the data frame. mean_norm gives the mean of the random sample (norm_samp); mean_log gives us the mean of the logical vector (vec_log). When I tried taking the mean of the character vector (vec_char) and the factor vector (vec_factor), I got an error saying the argument is not numeric or logical: returning N/A. 
+
+##Here's the first **code chunk** that creates a data frame called first_df comprised of a random sample named norm_samp of size 8 from a _standard normal distribution_, a logical vector named vec_log indicating whether elements of the sample are greater than 0, a character vector named vec_char of length 8 and a factor vector named vec_factor of length 8, with 3 different factor levels- Here the three levels are 1,2 and 3. After creating the data frame, I tried taking the mean of each variable in the data frame. mean_norm gives the mean of the random sample (norm_samp); mean_log gives us the mean of the logical vector (vec_log). When I tried taking the mean of the character vector (vec_char) and the factor vector (vec_factor), I got an error saying the argument is not numeric or logical: returning N/A. 
 
 ```{r first_chunk}
 
