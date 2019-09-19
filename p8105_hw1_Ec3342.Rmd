@@ -9,8 +9,8 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
  
-## Question 1
-#Here's the first **code chunk** that creates a data frame called first_df comprised of a random sample named norm_samp of size 8 from a _standard normal distribution_, a logical vector named vec_log indicating whether elements of the sample are greater than 0, a character vector named vec_char of length 8 and a factor vector named vec_factor of length 8, with 3 different factor levels- Here the three levels are 1,2 and 3. After creating the data frame, I tried taking the mean of each variable in the data frame. mean_norm gives the mean of the random sample- norm_samp; mean_log gives us the mean of the logical vector- vec_log. When I tried taking the mean of the character vector- vec_char and the factor vector- vec_factor, I got an error saying the argument is not numeric or logical: returning N/A. 
+#Question 1
+#Here's the first **code chunk** that creates a data frame called first_df comprised of a random sample named norm_samp of size 8 from a _standard normal distribution_, a logical vector named vec_log indicating whether elements of the sample are greater than 0, a character vector named vec_char of length 8 and a factor vector named vec_factor of length 8, with 3 different factor levels- Here the three levels are 1,2 and 3. After creating the data frame, I tried taking the mean of each variable in the data frame. mean_norm gives the mean of the random sample (norm_samp); mean_log gives us the mean of the logical vector (vec_log). When I tried taking the mean of the character vector (vec_char) and the factor vector (vec_factor), I got an error saying the argument is not numeric or logical: returning N/A. 
 
 ```{r first_chunk}
 
@@ -30,31 +30,45 @@ mean_char = mean(pull(first_df,vec_char))
 
 mean_fac = mean(pull(first_df,vec_factor))
 ```
-#I am writing a code chunk to apply the as.numeric function to the logical, character, and factor variables. I am hiding the output by giving eval= FALSE in the code chunk. When I applied the as.numeric function, the logical vector, character vector and the factor vector gets converted to numeric. When I tried taking the mean after this conversion, I no longer got the error. Therefore, applying as.numeric function allows us to take the mean of each variable in our dataframe.
+#Now writing a **code chunk** to apply the **as.numeric** function to the logical, character, and factor variables. Hiding the output by giving **eval = FALSE** in the code chunk. After applying the as.numeric function, the logical vector, character vector and the factor vector gets converted to numeric.as.numeric will return the numeric codes that correspond to the logical vector, character vector and factor vector. If we try taking the mean after this conversion, we no longer get an error. Therefore, applying as.numeric function allows us to take the mean of each variable in our dataframe.
 
-``````{r eval= FALSE}
-mean(as.numeric(first_df[["vec_log"]]))
-mean(as.numeric(first_df[["vec_char"]]))
-mean(as.numeric(first_df[["vec_factor"]]))
+``````{r conversion_chunk, eval = FALSE}
+
+as.numeric(pull(first_df,vec_log))
+
+as.numeric(pull(first_df,vec_char))
+
+as.numeric(pull(first_df,vec_factor))
+
+mean(as.numeric(pull(first_df,vec_log)))
+
+mean(as.numeric(pull(first_df,vec_char)))
+
+mean(as.numeric(pull(first_df,vec_factor)))
+
 ```
 
-#Here's the second **code chunk** In line 44: Converting the logical vector, vec_log to numeric using the as.numeric function and then multiplying the result with the random sample. In line 45: Converting the logical vector to factor vector using the as.factor function and then trying to multiply the result with the random sample.Got an error here saying '*' is not meaningful for factors. In line 46: Converting the logical vector to a factor vector and then converted the result to numeric followed by multiplying the result with the random sample. On doing so,I didn't get any error because I first converted the factor vector into numeric and then multiplied that with the random sample.
+#Here's the second **code chunk** 
+#Converting the logical vector (vec_log) to numeric using the **as.numeric** function and then multiplying the result with the random sample(norm_samp).  
+#Converting the logical vector (vec_log) to factor vector using the **as.factor** function and then trying to multiply the result with the random sample(norm_samp). On doing so, I got an error here saying '*' is not meaningful for factors.  
+#Converting the logical vector to a factor vector using as.factor and then converted the result to numeric using as.numeric; followed by multiplying the result with the random sample.On doing so,I didn't get any error because I first converted the factor vector into numeric and then multiplied that with the random sample.
 
 ```{r second_chunk}
 
-num_random = as.numeric(first_df[["vec_log"]])*(first_df[["norm_samp"]])
-num_factor = as.factor(first_df[["vec_log"]])*(first_df[["norm_samp"]])
-num_factor = as.numeric(as.factor(first_df[["vec_log"]]))*(first_df[["norm_samp"]])
+as.numeric(first_df[["vec_log"]])*(first_df[["norm_samp"]])
+as.factor(first_df[["vec_log"]])*(first_df[["norm_samp"]])
+as.numeric(as.factor(first_df[["vec_log"]]))*(first_df[["norm_samp"]])
 ```
-##Question 2: Creating a data frame comprised of: x which is a random sample of size 500 from a standard Normal distribution, y which is a random sample of size 500 from a standard Normal distribution, A logical vector, vec_log2 indicating whether x + y > 1, a numeric vector, vec_num created by coercing the above logical vector and A factor vector created by coercing the above logical vector
+
+#Question 2: Creating a data frame comprised of: x which is a random sample of size 500 from a standard Normal distribution, y which is a random sample of size 500 from a standard Normal distribution, A logical vector (vec_log2) indicating whether x + y > 1, a numeric vector (vec_num), created by coercing the above logical vector and a factor vector(vec_fac) created by coercing the above logical vector
 
 ```{r question 2}
 
 library(tidyverse)
 
 second_df = tibble(
-  x = rnorm (500) ,
-  y = rnorm (500),
+  x = rnorm(500),
+  y = rnorm(500),
   vec_log2 = x + y > 1,
 )
 vec_num = as.numeric(second_df[["vec_log2"]])
@@ -63,13 +77,13 @@ vec_fac = as.factor(second_df[["vec_log2"]])
 nrow(second_df)
 ncol(second_df)
 mean_x = mean(pull(second_df,x))
-median_x = median (pull(second_df,x))
-sd_x = sd (pull(second_df,x))
+median_x = median(pull(second_df,x))
+sd_x = sd(pull(second_df,x))
 prop = sum(second_df[["vec_log2"]], na.rm = TRUE)/nrow(second_df)
-plot_logical = ggplot(second_df, aes(x=x, y=y, color= vec_log2)) + geom_point()
+plot_logical = ggplot(second_df, aes(x = x, y = y, color = vec_log2)) + geom_point()
 plot_logical
-plot_num = ggplot(second_df, aes(x=x, y=y, color= vec_num)) + geom_point()
+plot_num = ggplot(second_df, aes(x = x, y = y, color = vec_num)) + geom_point()
 plot_num
-plot_fac =  ggplot(second_df, aes(x=x, y=y, color= vec_fac)) + geom_point()
+plot_fac =  ggplot(second_df, aes(x = x, y = y, color = vec_fac)) + geom_point()
 plot_fac
 ```
