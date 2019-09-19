@@ -8,7 +8,7 @@ output: github_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
+ 
 ## Question 1
 #Here's the first **code chunk** that creates a data frame called first_df comprised of a random sample named norm_samp of size 8 from a standard normal distribution, a logical vector named vec_log indicating whether elements of the sample are greater than 0, a character vector named vec_char of length 8 and a factor vector named vec_factor of length 8, with 3 different factor levels- Here the three levels are 1,2 and 3. After creating the data frame, I tried taking the mean of each variable in the data frame. mean_norm gives the mean of the random sample- norm_samp; mean_log gives us the mean of the logical vector- vec_log. When I tried taking the mean of the character vector- vec_char and the factor vector- vec_factor, I got an error saying the argument is not numeric or logical: returning N/A. Next I applied the as.numeric function to the logical, character, and factor variables. When I applied the as.numeric function, the logical vector, character vector and the factor vector gets converted to numeric. When I tried taking the mean after this conversion, I no longer got the error. Applying as.numeric function allows us to take the mean of each variable in our dataframe.
 
@@ -43,7 +43,7 @@ num_random = as.numeric(first_df[["vec_log"]])*(first_df[["norm_samp"]])
 num_factor = as.factor(first_df[["vec_log"]])*(first_df[["norm_samp"]])
 num_factor = as.numeric(as.factor(first_df[["vec_log"]]))*(first_df[["norm_samp"]])
 ```
-##Question 2: Creating a data frame comprised of: x which is a random sample of size 500 from a standard Normal distribution, y which is a random sample of size 500 from a standard Normal distribution, A logical vector, gr_th_1 indicating whether x + y > 1, a numeric vector, vec_num created by coercing the above logical vector and A factor vector created by coercing the above logical vector
+##Question 2: Creating a data frame comprised of: x which is a random sample of size 500 from a standard Normal distribution, y which is a random sample of size 500 from a standard Normal distribution, A logical vector, vec_log2 indicating whether x + y > 1, a numeric vector, vec_num created by coercing the above logical vector and A factor vector created by coercing the above logical vector
 
 ```{r question 2}
 
