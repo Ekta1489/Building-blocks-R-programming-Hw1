@@ -398,11 +398,17 @@ mean_char = mean(pull(first_df,vec_char))</code></pre>
 <pre><code>## Warning in mean.default(pull(first_df, vec_factor)): argument is not
 ## numeric or logical: returning NA</code></pre>
 <pre class="r"><code>mean(as.numeric(first_df[[&quot;vec_log&quot;]]))</code></pre>
-<pre><code>## [1] 0.625</code></pre>
+<pre><code>## [1] 0.375</code></pre>
 <pre class="r"><code>mean(as.numeric(first_df[[&quot;vec_char&quot;]]))</code></pre>
 <pre><code>## [1] 4.5</code></pre>
 <pre class="r"><code>mean(as.numeric(first_df[[&quot;vec_factor&quot;]]))</code></pre>
 <pre><code>## [1] 1.875</code></pre>
+<p>#Here’s the second <strong>code chunk</strong> In line 44: Converting the logical vector, vec_log to numeric using the as.numeric function and then multiplying the result with the random sample. In line 45: Converting the logical vector to factor vector using the as.factor function and then trying to multiply the result with the random sample.Got an error here saying ’*’ is not meaningful for factors. In line 46: Converting the logical vector to a factor vector and then converted the result to numeric followed by multiplying the result with the random sample. On doing so,I didn’t get any error because I first converted the factor vector into numeric and then multiplied that with the random sample.</p>
+<pre class="r"><code>num_random = as.numeric(first_df[[&quot;vec_log&quot;]])*(first_df[[&quot;norm_samp&quot;]])
+num_factor = as.factor(first_df[[&quot;vec_log&quot;]])*(first_df[[&quot;norm_samp&quot;]])</code></pre>
+<pre><code>## Warning in Ops.factor(as.factor(first_df[[&quot;vec_log&quot;]]),
+## (first_df[[&quot;norm_samp&quot;]])): '*' not meaningful for factors</code></pre>
+<pre class="r"><code>num_factor = as.numeric(as.factor(first_df[[&quot;vec_log&quot;]]))*(first_df[[&quot;norm_samp&quot;]])</code></pre>
 </div>
 
 

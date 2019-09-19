@@ -35,3 +35,11 @@ mean(as.numeric(first_df[["vec_char"]]))
 mean(as.numeric(first_df[["vec_factor"]]))
 
 ```
+#Here's the second **code chunk** In line 44: Converting the logical vector, vec_log to numeric using the as.numeric function and then multiplying the result with the random sample. In line 45: Converting the logical vector to factor vector using the as.factor function and then trying to multiply the result with the random sample.Got an error here saying '*' is not meaningful for factors. In line 46: Converting the logical vector to a factor vector and then converted the result to numeric followed by multiplying the result with the random sample. On doing so,I didn't get any error because I first converted the factor vector into numeric and then multiplied that with the random sample.
+
+```{r second_chunk}
+
+num_random = as.numeric(first_df[["vec_log"]])*(first_df[["norm_samp"]])
+num_factor = as.factor(first_df[["vec_log"]])*(first_df[["norm_samp"]])
+num_factor = as.numeric(as.factor(first_df[["vec_log"]]))*(first_df[["norm_samp"]])
+```
