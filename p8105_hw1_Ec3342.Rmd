@@ -1,0 +1,37 @@
+---
+title: "p8105_hw1_Ec3342"
+author: "Ekta Chaudhary"
+date: "19/09/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 1
+#Here's the first **code chunk** that creates a data frame called first_df comprised of a random sample named norm_samp of size 8 from a standard normal distribution, a logical vector named vec_log indicating whether elements of the sample are greater than 0, a character vector named vec_char of length 8 and a factor vector named vec_factor of length 8, with 3 different factor levels- Here the three levels are 1,2 and 3. After creating the data frame, I tried taking the mean of each variable in the data frame. mean_norm gives the mean of the random sample- norm_samp; mean_log gives us the mean of the logical vector- vec_log. When I tried taking the mean of the character vector- vec_char and the factor vector- vec_factor, I got an error saying the argument is not numeric or logical: returning N/A. Next I applied the as.numeric function to the logical, character, and factor variables. When I applied the as.numeric function, the logical vector, character vector and the factor vector gets converted to numeric. When I tried taking the mean after this conversion, I no longer got the error. Applying as.numeric function allows us to take the mean of each variable in our dataframe.
+
+```{r first_chunk}
+
+library(tidyverse)
+
+first_df = tibble(
+  norm_samp = rnorm(8),
+  vec_log = norm_samp > 0,
+  vec_char = c("1","2","3","4","5","6","7","8"),
+  vec_factor = factor(c("1","2","3","1","2","3","1","2")),
+)
+mean_norm = mean(pull(first_df,norm_samp)) 
+
+mean_log = mean(pull(first_df,vec_log))
+
+mean_char = mean(pull(first_df,vec_char))
+
+mean_fac = mean(pull(first_df,vec_factor))
+
+mean(as.numeric(first_df[["vec_log"]]))
+mean(as.numeric(first_df[["vec_char"]]))
+mean(as.numeric(first_df[["vec_factor"]]))
+
+```
