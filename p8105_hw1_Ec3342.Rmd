@@ -67,6 +67,5 @@ plot_logical = ggplot(second_df, aes(x=x, y=y, color= vec_log2)) + geom_point()
 plot_logical
 plot_num = ggplot(second_df, aes(x=x, y=y, color= vec_num)) + geom_point()
 plot_num
-plot_fac =  ggplot(second_df, aes(x=x, y=y, color= vec_fac)) + geom_point()
-plot_fac
+
 ```
