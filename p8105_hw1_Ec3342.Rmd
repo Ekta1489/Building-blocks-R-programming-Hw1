@@ -2,7 +2,7 @@
 title: "p8105_hw1_Ec3342"
 author: "Ekta Chaudhary"
 date: "19/09/2019"
-output: html_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
