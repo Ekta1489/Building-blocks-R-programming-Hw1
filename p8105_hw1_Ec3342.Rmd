@@ -43,3 +43,30 @@ num_random = as.numeric(first_df[["vec_log"]])*(first_df[["norm_samp"]])
 num_factor = as.factor(first_df[["vec_log"]])*(first_df[["norm_samp"]])
 num_factor = as.numeric(as.factor(first_df[["vec_log"]]))*(first_df[["norm_samp"]])
 ```
+##Question 2: Creating a data frame comprised of: x which is a random sample of size 500 from a standard Normal distribution, y which is a random sample of size 500 from a standard Normal distribution, A logical vector, gr_th_1 indicating whether x + y > 1, a numeric vector, vec_num created by coercing the above logical vector and A factor vector created by coercing the above logical vector
+
+```{r question 2}
+
+library(tidyverse)
+
+second_df = tibble(
+  x = rnorm (500) ,
+  y = rnorm (500),
+  vec_log2 = x + y > 1,
+)
+vec_num = as.numeric(second_df[["vec_log2"]])
+vec_fac = as.factor(second_df[["vec_log2"]])
+
+nrow(second_df)
+ncol(second_df)
+mean_x = mean(pull(second_df,x))
+median_x = median (pull(second_df,x))
+sd_x = sd (pull(second_df,x))
+prop = sum(second_df[["vec_log2"]], na.rm = TRUE)/nrow(second_df)
+plot_logical = ggplot(second_df, aes(x=x, y=y, color= vec_log2)) + geom_point()
+plot_logical
+plot_num = ggplot(second_df, aes(x=x, y=y, color= vec_num)) + geom_point()
+plot_num
+plot_fac =  ggplot(second_df, aes(x=x, y=y, color= vec_fac)) + geom_point()
+plot_fac
+```
