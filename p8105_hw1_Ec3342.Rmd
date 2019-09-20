@@ -92,7 +92,8 @@ ggplot(second_df, aes(x = x, y = y, color = vec_num)) + geom_point()
 ggplot(second_df, aes(x = x, y = y, color = vec_fac)) + geom_point() 
 
 ```
-# The first scatterplot that color points using the logical variable has two colors: Red represents False and Turquiose represents True. The second scatterplot that color points using the numeric variable has two colors: Light blue represents larger numbers and dark blue represents smaller numbers. The third scatterplot that color points using the factor variable has two colors: Red represents False and Turquiose represents True.
+
+#The first scatterplot that color points using the logical variable has two colors: Red represents False and Turquiose represents True. The second scatterplot that color points using the numeric variable has two colors: Light blue represents larger numbers and dark blue represents smaller numbers. The third scatterplot that color points using the factor variable has two colors: Red represents False and Turquiose represents True.
 
 #Exporting the first scatterplot to my project directory.
 
