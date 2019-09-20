@@ -44,7 +44,7 @@ mean(as.numeric(pull(first_df,vec_factor)))
 
 ```
 ## Second code chunk
-#Here's the second **code chunk** that is Converting the logical vector (vec_log) to numeric using the **as.numeric** function and then multiplying the result with the random sample(norm_samp).  Converting the logical vector (vec_log) to factor vector using the **as.factor** function and then trying to multiply the result with the random sample(norm_samp). On doing so, I got an error here saying '*' is not meaningful for factors. Converting the logical vector to a factor vector using as.factor and then converted the result to numeric using as.numeric; followed by multiplying the result with the random sample.On doing so,I didn't get any error because I first converted the factor vector into numeric and then multiplied that with the random sample.
+#Here's the second **code chunk** In the first line of this code chunk,I am converting the logical vector (vec_log) to numeric using the **as.numeric** function and then multiplying the result with the random sample(norm_samp).In the second line of this code chunk, I am converting the logical vector (vec_log) to factor vector using the **as.factor** function and then trying to multiply the result with the random sample(norm_samp). On doing so, I got an error here saying '*' is not meaningful for factors.In the third line of this code chunk, I am converting the logical vector to a factor vector using as.factor and then converting the result to numeric using as.numeric; followed by multiplying the result with the random sample.On doing so,I didn't get any error because I first converted the factor vector into numeric and then multiplied that with the random sample.
 
 ```{r second_chunk}
 
@@ -67,7 +67,7 @@ second_df = tibble(
   y = rnorm(500),
   vec_log2 = x + y > 1,
 vec_num = as.numeric(vec_log2),
-vec_fac = as.factor(vec_log2)
+vec_fac = as.factor(vec_log2),
 )
 
 ```
