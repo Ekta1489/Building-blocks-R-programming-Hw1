@@ -30,7 +30,7 @@ mean(pull(first_df,vec_factor))
 ```
 #After creating the data frame, I tried taking the mean of each variable in the data frame. I got the mean of the random sample (norm_samp) and the logical vector (vec_log).However, when I tried taking the mean of the character vector (vec_char) and the factor vector (vec_factor), I got an error saying the argument is not numeric or logical:returning N/A.
 
-#Now writing a **code chunk** to apply the **as.numeric** function to the logical, character, and factor variables. Hiding the output by giving **eval = FALSE** in the code chunk. After applying the as.numeric function, the logical vector, character vector and the factor vector gets converted to numeric because as.numeric will return the numeric codes that correspond to the logical vector, character vector and factor vector. If we try taking the mean after this conversion, we no longer get an error. Therefore, applying as.numeric function allows us to take the mean of each variable in our dataframe, first_df.
+#Now writing a code chunk to apply the **as.numeric** function to the logical, character, and factor variables. Hiding the output by giving **eval = FALSE** in the code chunk. After applying the as.numeric function, the logical vector, character vector and the factor vector gets converted to numeric because as.numeric will return the numeric codes that correspond to the logical vector, character vector and factor vector. If we try taking the mean after this conversion, we no longer get an error. Therefore, applying as.numeric function allows us to take the mean of each variable in our dataframe, first_df.
 
 ``````{r conversion_chunk, eval = FALSE}
 
@@ -67,7 +67,7 @@ second_df = tibble(
   y = rnorm(500),
   vec_log2 = x + y > 1,
 vec_num = as.numeric(vec_log2),
-vec_fac = as.factor(vec_log2),
+vec_fac = as.factor(vec_log2)
 )
 
 ```
@@ -91,7 +91,6 @@ plot_2 = ggplot(second_df, aes(x = x, y = y, color = vec_num)) + geom_point()
 plot_2
 plot_3 = ggplot(second_df, aes(x = x, y = y, color = vec_fac)) + geom_point() 
 plot_3
-ggsave("plot_1.pdf", height = 4, width = 6)
 
 ```
 
