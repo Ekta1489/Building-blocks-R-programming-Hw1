@@ -81,13 +81,17 @@ vec_fac = as.factor(vec_log2),
 `r sum(pull(second_df,vec_log2),na.rm = TRUE)/nrow(second_df)`
 
 ## Scatterplot 
-#Creating a scatterplot of y vs x that color points using the logical variable, a second scatterplot that color points using the numeric variables, and a third scatterplot that color plots using the factor variables.
+#Creating a scatterplot (plot_1) of y vs x that color points using the logical variable, a second scatterplot (plot_2) that color points using the numeric variables, and a third scatterplot that color plots using the factor variables.Exporting the first scatterplot (plot_1) to my project directory using ggsave.
 
 ```{r scatterplot}
 
-ggplot(second_df, aes(x = x, y = y, color = vec_log2)) + geom_point()
-ggplot(second_df, aes(x = x, y = y, color = vec_num)) + geom_point()
-ggplot(second_df, aes(x = x, y = y, color = vec_fac)) + geom_point()
+plot_1 = ggplot(second_df, aes(x = x, y = y, color = vec_log2)) + geom_point() 
+plot_1
+plot_2 = ggplot(second_df, aes(x = x, y = y, color = vec_num)) + geom_point() 
+plot_2
+plot_3 = ggplot(second_df, aes(x = x, y = y, color = vec_fac)) + geom_point() 
+plot_3
+ggsave("plot_1.pdf", height = 4, width = 6)
 
 ```
 
