@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # Question 1
 
 ## Creating a Data Frame: 
-#Here's the first **code chunk** that creates a data frame called first_df comprised of a random sample named norm_samp of size 8 from a _standard normal distribution_, a logical vector named vec_log indicating whether elements of the sample are greater than 0, a character vector named vec_char of length 8 and a factor vector named vec_factor of length 8, with 3 different factor levels- Here the three levels are 1,2 and 3. After creating the data frame, I tried taking the mean of each variable in the data frame. I got the mean of the random sample (norm_samp) and the logical vector (vec_log).However, when I tried taking the mean of the character vector (vec_char) and the factor vector (vec_factor), I got an error saying the argument is not numeric or logical:returning N/A.
+#Here's the first **code chunk** that creates a data frame called first_df comprised of a random sample named norm_samp of size 8 from a _standard normal distribution_, a logical vector named vec_log indicating whether elements of the sample are greater than 0, a character vector named vec_char of length 8 and a factor vector named vec_factor of length 8, with 3 different factor levels.
 
 ```{r first_chunk}
 
@@ -28,6 +28,8 @@ mean(pull(first_df,vec_char))
 mean(pull(first_df,vec_factor))
 
 ```
+#After creating the data frame, I tried taking the mean of each variable in the data frame. I got the mean of the random sample (norm_samp) and the logical vector (vec_log).However, when I tried taking the mean of the character vector (vec_char) and the factor vector (vec_factor), I got an error saying the argument is not numeric or logical:returning N/A.
+
 #Now writing a **code chunk** to apply the **as.numeric** function to the logical, character, and factor variables. Hiding the output by giving **eval = FALSE** in the code chunk. After applying the as.numeric function, the logical vector, character vector and the factor vector gets converted to numeric because as.numeric will return the numeric codes that correspond to the logical vector, character vector and factor vector. If we try taking the mean after this conversion, we no longer get an error. Therefore, applying as.numeric function allows us to take the mean of each variable in our dataframe, first_df.
 
 ``````{r conversion_chunk, eval = FALSE}
